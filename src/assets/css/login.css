@@ -1,0 +1,165 @@
+
+.content {
+    margin-top: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 100%;
+    position: relative;
+}
+.main {
+    padding-top: 1.2rem;
+}
+.page_lr {
+    margin: auto 1.25rem;
+}
+.main .user, .main .pw, .main .graphics {
+    overflow: hidden;
+    height: 2.25rem;
+    border-radius: .25rem;
+    position: relative;
+}
+.main .bg {
+    background-color: #fafafa;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fafafa;
+}
+.main .detail {
+    overflow: hidden;
+    display: none;
+}
+.main .pw {
+    margin-top: .875rem;
+}
+
+
+.main .user, .main .pw, .main .graphics {
+    overflow: hidden;
+    height: 2.25rem;
+    border-radius: .25rem;
+    position: relative;
+}
+
+.main .bg {
+    background-color: #fafafa;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fafafa;
+    width: 100%;
+    margin-bottom: 15px;
+    border:1px solid #ccc;
+}
+.main .pw .icon {
+    background-image: url(../img/pw_icon.png);
+}
+
+
+.main .icon {
+    float: left;
+    width: 1.8rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../img/user_icon.png) .75rem center no-repeat;
+    background-size: .775rem auto;
+}
+
+.main span {
+    display: block;
+    height: 100%;
+}
+.main .input {
+    float: left;
+    width: 62.3%;
+    margin-left: 1.8rem;
+}
+
+
+.main span {
+    display: block;
+    height: 100%;
+}
+.main .input input {
+    width: 100%;
+    font-size: .75rem;
+    line-height: normal;
+    height: 2.25rem;
+    background-color: transparent;
+    color: #323232;
+}
+.main .btn {
+    background-color: #b9b9b9;
+    color: white;
+    font-size: .9rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border-radius: .25rem;
+    margin-top: 1rem;
+    line-height: 2.25rem;
+}
+
+.main .func dt {
+    float: left;
+    border-bottom: 1px solid #a3a3a3;
+}
+
+.main .func {
+    margin-top: .625rem;
+    overflow: hidden;
+}
+.main .func dt, .main .func dd {
+    display: block;
+    font-size: .6rem;
+}
+.main .func dd {
+    float: right;
+}
+.main .func dd a {
+    display: block;
+    padding-right: .875rem;
+    background: url(../img/arrow_r_icon.png) right center no-repeat;
+    background-size: .575rem auto;
+}
+.defend {
+    margin-top: 1.5rem;
+    line-height: .8rem;
+    font-size: .6rem;
+    color: #717171;
+}
+
+.defend a {
+    color: #ff463c;
+    display: inline-block;
+    border-bottom: 1px solid #ff463c;
+}
+.support {
+    overflow: hidden;
+    padding-top: 1.25rem;
+    padding-bottom: 1.2rem;
+    text-align: center;
+    position: absolute;
+    
+    left: 0;
+    width: 100%;
+}
+.support li {
+    display: inline-block;
+    margin-right: .25rem;
+    font-size: .55rem;
+    text-align: center;
+    line-height: .65rem;
+    color: #969696;
+}
+.support li i {
+    display: inline-block;
+    width: .65rem;
+    height: .65rem;
+    font-size: 0;
+    line-height: 0;
+    background: url(../img/check_icon.png) center center no-repeat;
+    background-size: contain;
+    margin-right: .175rem;
+    vertical-align: middle;
+    margin-top: -0.1rem;
+}

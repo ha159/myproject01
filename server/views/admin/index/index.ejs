@@ -1,0 +1,113 @@
+<%- include ../public/header.ejs%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <%- include ../public/aslideleft.ejs%>
+          
+        </div>
+        <div class="col-sm-10">
+        	
+        	
+            <div class="panel panel-default">
+                <div class="panel-heading">团队留言板</div>
+                <div class="panel-body">
+                	
+                        <form action="/msg" method="post">
+                            <div class="form-group">
+                                <label for="text1">输入留言内容</label>
+                                <textarea style="width: 100%;height: 80px;" class="form-control" id="text1" name="text" rows="5" cols="10" placeholder="请输入留言内容"></textarea>
+                                <button type="button" class="btn btn-default mar_t15">留言</button>
+                            </div>
+                        </form>
+                 
+                       <ol class="breadcrumb">
+			                <li class="active">
+			                	最新留言：
+			                </li>
+			                
+			            </ol>
+                        <div class="msg_text">
+                        	<ol class="content">
+				                
+				                
+				            </ol>
+                        </div>
+               
+            </div>
+            <nav aria-label="Page navigation" style="padding-left: 15px;display: none;">
+			  <ul class="pagination">
+			    <li>
+			      <a href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li><a href="#">1</a></li>
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+			    <li>
+			      <a href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+        </div>
+    </div>
+</div>
+
+<%- include ../public/footer.ejs%>
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/time.js" type="text/javascript"></script>
+<script type="text/javascript">
+	//ajax请求数据
+	window.onload = function(){
+		$.get('/admin/index/getMsg',function(result){
+//		 var data = JSON.parse(result)
+	  	 console.log(result);
+	  	 var len = result.return.length;
+	  	 var time = new Date().format("yyyy-MM-dd hh:mm:ss");
+	  	 for(var i = 0;i<len;i++){
+	  	 	 var username = result.return[i].username;
+	  	 	 var msg = result.return[i].msg;
+	  	 	 var id=result.return[i]._id;
+	  	 	 
+	  	 	 var $msg_all = $('<li><h4>'+username+':</h4><p>'+msg+'</p> <span id="del" class="glyphicon glyphicon-time" style="position:absolute;right:5px;top:10px"><i style="display:inline;padding-left:3px">'+time+'</i></span></li>' );
+            $(".content").append($msg_all);
+           
+	  	 }
+	  	 
+	});
+	}
+	
+	//ajax提交数据
+	$(".btn").click(function(){
+	   var msg = $('#text1').val();
+	  $.post("/admin/index/postMsg",
+	  {
+	    msg:msg
+	    
+	  },
+	  function(data,status){
+         
+	  });
+//	  
+          var username=window.sessionStorage.getItem("username")
+	  	 var time = new Date().format("yyyy-MM-dd hh:mm:ss");
+          var msg = $("#text1").val();
+          var $msg_all = $('<li><h4>'+"<%=userinfo.username%>"+':</h4><p>'+msg+'</p> <span id="del" class="glyphicon glyphicon-time" style="position:absolute;right:5px;top:10px"><i style="display:inline;padding-left:3px">'+time+'</i></span></li>' );
+            $(".content").prepend($msg_all);
+	 location.reload();
+	  
+	});
+	
+	$('#del').click(function(e){
+		console.log(e)
+		alert('aa')
+	})
+</script>
+

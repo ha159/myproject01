@@ -1,0 +1,48 @@
+<%- include ../public/header.ejs%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aslideleft.ejs%>
+          
+        </div>
+        <div class="col-sm-10">
+            <ol class="breadcrumb">
+                <li class="active">商品管理
+                </li>
+                <li class="active">商品列表
+                </li>
+            </ol>
+            <div class="panel panel-default">
+              
+			    <div class="panel-heading">
+                  编辑商品
+                </div>
+                <div class="panel-body">
+                    <form action="doUserEdit" method="post" enctype="multipart/form-data">
+							  <input type="hidden" name="_id" value="<%=list._id%>" />
+							  
+							  
+							  <div class="form-group">
+							    <label for="price">用户密码:</label>
+							    <input type="text" name='password'  class="form-control" id="price" value=""/>
+							  </div>
+							  <div class="form-group">
+							    <label for="expressPrice">确认密码:</label>
+							    <input type="text" name='qrpassword'  class="form-control" id="expressPrice" value=""/>
+							  </div>
+							 
+							  
+							  
+							  <button type="submit" class="btn btn-primary">提交</button>
+							</form>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- include ../public/footer.ejs%>

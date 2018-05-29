@@ -1,0 +1,108 @@
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+#category{}
+.caregoty_head .top_bar {
+    position: fixed;
+}
+
+.category_content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-top:1px solid #eee;
+    padding-top: 5px;
+    overflow: hidden;
+    padding-bottom: 55px;
+}
+
+.category_content .category_left {
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+   
+    background-color:#f3f4f6;
+}
+
+.category_content .category_left ul {}
+
+.category_content .category_left ul li {
+    height: 46px;
+    width: 80px;
+    background: #f3f4f6;
+    font-size: 14px;
+    font-family: sans-serif;
+     border-bottom: 1px solid #e0e0e0;
+   
+}
+
+.category_content .category_left ul li a {
+    height: 46px;
+    width: 80px;
+    display: block;
+    text-align: center;
+    line-height: 46px;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+.category_content .category_left ul li.now {
+    background: #fff;
+}
+
+.category_content .category_left ul li.now a {
+    border-right: none;
+    color: #f15353;
+}
+
+.category_content .category_right {
+  
+    height: 100%;
+    padding-left: 80px;
+    background-color: #fff;
+}
+
+.category_right .category_banner,
+.category_detail {
+   
+}
+
+.category_right .category_banner a img {
+    display: block;
+    width: 94%;
+    margin: 0 auto;
+}
+
+.category_detail .category_detail_item {
+    float: left;
+    width: 33.333%;
+    text-align: center;
+}
+
+.category_detail .category_n {
+    color: #888;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.category_detail_item_link .category_detail_item_pic {
+    width: 62px;
+    height: 62px;
+    display: inline-block;
+}
+
+.category_detail_item_link .category_detail_item_name {
+    line-height: 30px;
+    height: 30px;
+    overflow: hidden;
+    font-size: 13px;
+    color: #333;
+}

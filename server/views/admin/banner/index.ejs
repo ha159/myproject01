@@ -1,0 +1,64 @@
+<%- include ../public/header.ejs%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <%- include ../public/aslideleft.ejs%>
+            
+          
+        </div>
+        <div class="col-sm-10">
+            <ol class="breadcrumb">
+                <li class="active">轮播图管理
+                </li>
+                <li class="active">轮播图列表
+                </li>
+            </ol>
+            
+            <!--
+                轮播图展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        
+                        <th>轮播图</th>
+                        <th>url地址</th>
+                        <th>时间</th>
+                       
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                     <% for(var i=0;i<list.length;i++){%>	
+                    <tr>
+                        <td><%=i+1%></td>                       
+                        <td><img width="60" src="<%=list[i].pic2%>" alt=""/></td> 
+                        <td><%=list[i].urlname%></td>                       
+                        
+                        <td><%=list[i].time%></td>                       
+                        
+                        <td class="text-center">                       
+                        	
+                        	<a href="/admin/banner/delete?id=<%=list[i]._id%>" class="btn btn-danger">删除</a>
+                        </td>
+                    
+					 </tr>
+                  <%}%>
+                    </tbody>
+                </table>
+            </div>
+            <nav aria-label="...">
+			  <ul class="pager">
+			    <li><a href="#">上一页</a></li>
+			    <li><a href="#">下一页</a></li>
+			  </ul>
+			</nav>
+        </div>
+    </div>
+</div>
+
+<%- include ../public/footer.ejs%>

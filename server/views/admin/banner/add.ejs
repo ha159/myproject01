@@ -1,0 +1,67 @@
+<%- include ../public/header.ejs%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <!--<%- include ../index/aslideleft.ejs%>-->
+            <%- include ../public/aslideleft.ejs%>
+            
+			
+          
+        </div>
+        <div class="col-sm-10">
+            <ol class="breadcrumb">
+                <li class="active">轮播图管理
+                </li>
+                <li class="active">轮播图列表
+                </li>
+            </ol>
+            <div class="panel panel-default">
+              
+			    <div class="panel-heading">
+                                           增加轮播图
+                </div>
+                <div class="panel-body">
+                   
+                  
+                        
+               <form action="doAdd" method="post" enctype="multipart/form-data">
+							  
+							  <div class="form-group">
+							    <label for="exampleInputFile">轮播图片:</label>
+							    <input type="file" name='pic2' id="exampleInputFile">
+							    
+							  </div>
+							 <div class="form-group">
+							    <label for="exampleInputFile">URL地址:</label>
+							    <input type="text" name='urlname' id="url" style="width: 20%;">
+							    
+							  </div>
+							  
+							  <button type="submit" class="btn btn-primary">提交</button>
+							</form>
+                    </div>
+               
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- include ../public/footer.ejs%>
+
+<script type="text/javascript">
+	function check(form){
+		var tip1 = document.getElementById('failTip');
+		
+		
+		if(form.name.value==''){
+			tip1.style.display = 'block';
+			form.name.focus();
+			return false;
+		}
+		
+	}
+</script>

@@ -1,0 +1,169 @@
+<%- include ../public/header.ejs%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <%- include ../public/aslideleft.ejs%>
+          
+        </div>
+        <div class="col-sm-10">
+            <ol class="breadcrumb">
+                <li class="active">信息管理
+                </li>
+                <li class="active">信息列表
+                </li>
+            </ol>
+            <div class="panel panel-default" style="display: none;">
+                <div class="panel-heading">
+                    搜索
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="form-inline">
+                        <div class="form-group">
+                            <label for="name">名称</label>
+                            <input type="text" class="form-control" id="name" placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">开始搜索</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--
+                列表展示
+            -->
+            
+            
+            <ol class="breadcrumb">
+                <li class="active">留言管理
+                </li>
+                
+            </ol>
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>用户名</th>
+                        <th>留言信息</th> 
+                        <th>留言时间</th>
+                        <th>回复内容</th> 
+                        <th>回复时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    
+                    <tbody class="content">
+                        <% for(var i=0;i<list.length;i++){%>
+                    <tr>
+                        <td><%=i+1%></td>
+                   
+                        <td><%=list[i].msgList.username%></td>
+                        <td><%=list[i].msgList.message%></td>
+                        <td><%=list[i].msgList.time%></td>
+                        <% if(list[i].backMsg){ %>
+                        	 <td><%=list[i].backMsg.message%></td>
+                        <%}else{%>
+                        	<td style="color:#f00;">待回复</td>
+                        <%}%>
+                        <% if(list[i].backMsg){ %>
+                        	 <td><%=list[i].backMsg.time%></td>
+                        <%}else{%>
+                        	<td>~</td>
+                        <%}%>
+                        <td class="text-center">
+                        	<a href="/admin/message/edit?id=<%=list[i]._id%>" class="btn btn-success">回复</a>
+                            
+                        	<a href="/admin/message/delete?id=<%=list[i]._id%>" class="btn btn-danger">删除</a>
+                        </td>
+                        
+					  
+                    <%}%>
+                   
+					  
+               
+                   
+                    </tbody>
+                </table>
+            </div>
+            <nav aria-label="...">
+			  <ul class="pager">
+			    <li><a href="/admin/message?page=<%=page-1%>">上一页</a></li>
+			    <li><a href="/admin/message?page=<%=page+1%>">下一页</a></li>
+			  </ul>
+			</nav>
+			
+			
+            
+        </div>
+    </div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+				   留言回复
+				</h4>
+			</div>
+			<div class="modal-body">
+				<textarea id="backMsg" style='width: 100%;height: 70px;' name="" rows="" cols="" placeholder="输入回复内容"></textarea>
+			</div>
+			<div class="modal-footer">
+				
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button id="submit" onclick="sendBackMsg()" type="button" class="btn btn-primary">
+					提交
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+<%- include ../public/footer.ejs%>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+//	//ajax请求数据
+//	window.onload = function(){
+//		$.get('/admin/message/showMsg',function(result){
+////		 var data = JSON.parse(result)
+//	  	 console.log(result);
+//	  	 var len = result.list.length;
+//	  	console.log(len)
+//	  	 for(var i = 0;i<len;i++){
+//	  	 	 var username = result.list[i].username;
+//	  	 	 console.log(username)
+//	  	 	 var msg = result.list[i].msgList[2];
+//	  	 	 console.log(msg)
+//	  	 	 var num=i+1;
+//	  	 	 var $msg_all = $('<tr><td>'+num+'</td><td>'+username+'</td><td><span onclick="sendMsg(this)" class="btn btn-success">查看</span></td><td class="text-center"><span onclick="sendMsg(this)" class="btn btn-success">查看</span></td><td class="text-center"><span onclick="sendMsg()" class="btn btn-success">查看</span></td><td class="text-center"><span onclick="sendMsg()" class="btn btn-success">查看</span></td></tr>' );
+//          $(".content").append($msg_all);
+//         
+//	  	 }
+//	  	 
+//	});
+//	}
+//	
+	//ajax提交数据
+//	function sendBackMsg(id){
+////		alert('aa');
+//	   var backMsg = $('#backMsg').val();
+//	   console.log(backMsg)
+//	  $.post("/admin/index/postMsg",
+//	  {
+//	    backMsg:backMsg,
+//	    id:id
+//	    
+//	  },function(data,status){
+//       
+//	  });
+//}
+//        
+	
+</script>
